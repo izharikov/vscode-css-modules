@@ -11,7 +11,7 @@ export function getCurrentLine(document: TextDocument, position: Position): stri
 
 export function genImportRegExp(key: string ): RegExp {
     // check file have extension .*ss or folder is css / scss / sass
-    const file = "((.+\\.\\S{1,2}ss)|(.*\\/\\S+ss\\/.*))";
+    const file = "((.+\\.\\S{1,2}ss)|(.*\\/(\\S+ss|style).*\\/.*))";
     const fromOrRequire = "(?:from\\s+|=\\s+require(?:<any>)?\\()";
     const requireEndOptional = "\\)?";
     const pattern = `${key}\\s+${fromOrRequire}["']${file}["']${requireEndOptional}`;
